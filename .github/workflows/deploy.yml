@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +24,9 @@ jobs:
       - uses: actions/upload-pages-artifact@v1
         with:
           path: build
+
+  deploy:
+    name: Deploy to GitHub Pages
     needs: build
     permissions:
       pages: write
